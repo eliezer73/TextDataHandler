@@ -106,13 +106,13 @@ public class LineLoader
         }
         Byte[] sourceBytes = this.Bytes ?? [];
         Encoding? defaultEncoding = encoding != null ? Encoding.GetEncoding(encoding.CodePage) : null;
-        int? originalCodePage = defaultEncoding?.CodePage;
-        List<int> codePagesToCheck = [originalCodePage ?? 0];
+        List<int> codePagesToCheck = [defaultEncoding?.CodePage ?? 0];
         Dictionary<int, Dictionary<int, int>> codePagesChecked = [];
         Dictionary<int, List<string>> resultsByCodePage = [];
+        int originalCodePage;
         do
         {
-            originalCodePage = defaultEncoding?.CodePage;
+            originalCodePage = defaultEncoding?.CodePage ?? 0;
             List<byte[]> byteLines = sourceBytes.SplitIntoLines();
             if (defaultEncoding == null && sourceBytes.Length > 10)
             {
@@ -172,8 +172,25 @@ public class LineLoader
                 }
                 lineIndex++;
             }
-            codePagesChecked.Add(originalCodePage ?? 0, numberOfEncodedLinesByCodePage);
-            resultsByCodePage.Add(originalCodePage ?? 0, lines);
+            if (!codePagesChecked.TryAdd(originalCodePage, numberOfEncodedLinesByCodePage))
+            {
+                if (codePagesChecked[originalCodePage].OrderByDescending(x => x.Value).First().Value
+                    < numberOfEncodedLinesByCodePage.OrderByDescending(x => x.Value).First().Value)
+                {
+                    codePagesChecked[originalCodePage] = numberOfEncodedLinesByCodePage;
+                    if (!resultsByCodePage.TryAdd(originalCodePage, lines))
+                    {
+                        resultsByCodePage[originalCodePage] = lines;
+                    }
+                }
+            }
+            else
+            {
+                if (!resultsByCodePage.TryAdd(originalCodePage, lines))
+                {
+                    resultsByCodePage[originalCodePage] = lines;
+                }
+            }
             // Multiple code pages found and default encoding changed from original;
             // check if using any of the conflicting encodings would return the same encoding as a result
             if (tryAgainInCaseOfEncodingConflict && numberOfEncodedLinesByCodePage.Count > 1)
@@ -185,6 +202,14 @@ public class LineLoader
                     defaultEncoding = Encoding.GetEncoding(nextCodePage.Value);
                     continue;
                 }
+                else
+                {
+                    break;
+                }
+            }
+            else
+            {
+                break;
             }
         }
         while (tryAgainInCaseOfEncodingConflict);
