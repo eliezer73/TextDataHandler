@@ -4,13 +4,27 @@
 // Licensed under the EUPL version 1.2 or later: https://data.europa.eu/eli/dec_impl/2017/863/oj
 
 using System.Globalization;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace TextDataHandler;
 
+/// <summary>
+/// Class for handling data records where each record is one line in a file - data fields are
+/// either in standard range positions within the line or separated by standard separator(s)
+/// </summary>
 public static class CSVManager
 {
+    /// <summary>
+    /// Reads the data records from the list of lines and returns them in a structured format.
+    /// </summary>
+    /// <param name="sourceLines">The source lines - each line defining a single record.</param>
+    /// <param name="definitions">The definitions for the fields within the record.</param>
+    /// <param name="isSuccess">(OUT) Returns <c>true</c>, if the data interpretation was completely successful according to <paramref name="definitions"/>, otherwise, <c>false</c>.</param>
+    /// <param name="errorLines">(OUT) If <paramref name="isSuccess"/> value was false, returns the list of zero-based line indexes on <paramref name="sourceLines"/> where there were problems. Contains only the first error line if <paramref name="stopAtFirstError"/> = <c>true</c>.</param>
+    /// <param name="fieldSeparators">(OPTIONAL) Defines a field separator or multiple alternative separators that may separate record fields from each other.</param>
+    /// <param name="possibleQuoteSigns">(OPTIONAL) If a field can be surrounded by quote signs, defines which character(s) can be used as quote signs for this purpose. NB! If the same quote sign can also exist within the data it must be escaped by either replacing the single sign with two consecutive same signs or adding \ sign as an escape sign in front of it.</param>
+    /// <param name="stopAtFirstError">(OPTIONAL) If set to <c>true</c>, stops interpretation immediately when a line or field that cannot be handled according to <paramref name="definitions"/> is found. If set to <c>false</c> (= default behaviour), the problematic field or record is left out of the result but the handling continues on next field/record.</param>
+    /// <returns>List of records in the format: a dictionary of field definition and the target object of the field in the data format specified in the definition.</returns>
     public static List<Dictionary<TextFieldDataDefinition, object>> ReadFields(List<string> sourceLines,
                                                                                List<TextFieldDataDefinition> definitions,
                                                                                out bool isSuccess,

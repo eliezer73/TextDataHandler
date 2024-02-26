@@ -12,7 +12,6 @@ namespace TextDataHandler;
 /// </summary>
 public static class ByteArrayExtensions
 {
-
     /// <summary>
     /// Splits the byte array into a list of byte arrays for each line
     /// </summary>

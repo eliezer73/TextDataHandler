@@ -53,12 +53,24 @@ public class LineLoader
         this.AllLines = allLines;
     }
 
+    /// <summary>
+    /// The source file name with the path to it
+    /// </summary>
     public string? FileNameWithPath { get; private set; }
 
+    /// <summary>
+    /// The source data in bytes
+    /// </summary>
     public byte[]? Bytes { get; private set; }
 
+    /// <summary>
+    /// The encoding used most when the character format was interpreted
+    /// </summary>
     public Encoding? Encoding { get; private set; }
 
+    /// <summary>
+    /// All lines read from the source data file/byte array
+    /// </summary>
     public List<string>? AllLines { get; private set; }
 
     /// <summary>
