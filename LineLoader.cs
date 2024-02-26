@@ -156,7 +156,7 @@ public class LineLoader
                 // Either there is no detected encoding or there was a question mark that could indicate a
                 // decoding failure (or just a question mark, but let's check).
                 if ((defaultEncoding == null || line.Contains('?'))
-                    && (lineBytes.CheckCharacterEncoding(currentEncoding, out Encoding? detectedEncoding) ?? true) // Detect encoding, suggest current
+                    && (CharacterEncoding.Detect(lineBytes, currentEncoding, out Encoding? detectedEncoding) ?? true) // Detect encoding, presume current
                     && detectedEncoding != null && detectedEncoding.CodePage != currentEncoding.CodePage)
                 {
                     currentEncoding = detectedEncoding;
