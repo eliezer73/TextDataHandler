@@ -1,4 +1,10 @@
-﻿using System.Diagnostics;
+﻿// SPDX-License-Identifier: EUPL-1.2+
+//
+// Copyleft © 2024 Eliezer - mailto:eliezer@programmer.net?subject=TextDataHandler
+// https://github.com/eliezer73/TextDataHandler
+// Licensed under the EUPL: https://joinup.ec.europa.eu/licence/european-union-public-licence-version-12-or-later-eupl
+
+using System.Diagnostics;
 
 namespace TextDataHandler;
 

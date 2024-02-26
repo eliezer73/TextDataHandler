@@ -1,7 +1,8 @@
 ﻿// SPDX-License-Identifier: EUPL-1.2+
 //
-// Copyleft © 2024 Eliezer - https://github.com/eliezer73
-// Licensed under the EUPL version 1.2 or later: https://data.europa.eu/eli/dec_impl/2017/863/oj
+// Copyleft © 2024 Eliezer - mailto:eliezer@programmer.net?subject=TextDataHandler
+// https://github.com/eliezer73/TextDataHandler
+// Licensed under the EUPL: https://joinup.ec.europa.eu/licence/european-union-public-licence-version-12-or-later-eupl
 
 using System.Text;
 
@@ -156,7 +157,7 @@ public class LineLoader
                 // Either there is no detected encoding or there was a question mark that could indicate a
                 // decoding failure (or just a question mark, but let's check).
                 if ((defaultEncoding == null || line.Contains('?'))
-                    && (CharacterEncoding.Detect(lineBytes, currentEncoding, out Encoding? detectedEncoding) ?? true) // Detect encoding, presume current
+                    && (CharacterSetHelper.DetectCharEncoding(lineBytes, currentEncoding, out Encoding? detectedEncoding) ?? true) // Detect encoding, assume current
                     && detectedEncoding != null && detectedEncoding.CodePage != currentEncoding.CodePage)
                 {
                     currentEncoding = detectedEncoding;
