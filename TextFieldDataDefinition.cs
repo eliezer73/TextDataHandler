@@ -4,6 +4,7 @@
 // https://github.com/eliezer73/TextDataHandler
 // Licensed under the EUPL: https://joinup.ec.europa.eu/licence/european-union-public-licence-version-12-or-later-eupl
 
+using System;
 using System.Diagnostics;
 
 namespace TextDataHandler;
@@ -20,30 +21,30 @@ namespace TextDataHandler;
 [DebuggerDisplay("{Name} ({DataType})")]
 public class TextFieldDataDefinition(string name, FieldDataType dataType = FieldDataType.Text, IFormatProvider? formatProvider = null, string? regexPattern = null, uint? minLength = null, uint? maxLength = null)
 {
-    /// <summary>
-    /// Unique name for identifying the data field for response
-    /// </summary>
-    public string Name { get; set; } = name;
-    /// <summary>
-    /// The data type of the contents
-    /// </summary>
-    public FieldDataType DataType { get; set; } = dataType;
-    /// <summary>
-    /// Format information for interpreting the data
-    /// </summary>
-    public IFormatProvider? FormatProvider { get; set; } = formatProvider;
-    /// <summary>
-    /// Custom regular expression pattern for which the field contents must be a match before parsing the data type
-    /// </summary>
-    public string? RegexPattern { get; set; } = regexPattern;
-    /// <summary>
-    /// Minimum length of the expected string in the source field
-    /// </summary>
-    public uint? MinLength { get; set; } = minLength;
-    /// <summary>
-    /// Maximum length of the expected string in the source field
-    /// </summary>
-    public uint? MaxLength { get; set; } = maxLength;
+	/// <summary>
+	/// Unique name for identifying the data field for response
+	/// </summary>
+	public string Name { get; set; } = name;
+	/// <summary>
+	/// The data type of the contents
+	/// </summary>
+	public FieldDataType DataType { get; set; } = dataType;
+	/// <summary>
+	/// Format information for interpreting the data
+	/// </summary>
+	public IFormatProvider? FormatProvider { get; set; } = formatProvider;
+	/// <summary>
+	/// Custom regular expression pattern for which the field contents must be a match before parsing the data type
+	/// </summary>
+	public string? RegexPattern { get; set; } = regexPattern;
+	/// <summary>
+	/// Minimum length of the expected string in the source field
+	/// </summary>
+	public uint? MinLength { get; set; } = minLength;
+	/// <summary>
+	/// Maximum length of the expected string in the source field
+	/// </summary>
+	public uint? MaxLength { get; set; } = maxLength;
 
 
 }
