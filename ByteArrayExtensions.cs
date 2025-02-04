@@ -1,8 +1,7 @@
-﻿// SPDX-License-Identifier: EUPL-1.2+
+// SPDX-License-Identifier: EUPL-1.2+
 //
-// Copyleft © 2024 Eliezer - mailto:eliezer@programmer.net?subject=TextDataHandler
-// https://github.com/eliezer73/TextDataHandler
-// Licensed under the EUPL: https://joinup.ec.europa.eu/licence/european-union-public-licence-version-12-or-later-eupl
+// Copyleft © 2024‒ Eliezer - https://github.com/eliezer73
+// Licensed under the EUPL: https://eur-lex.europa.eu/eli/dec_impl/2017/863#d1e32-60-1
 
 namespace TextDataHandler;
 
