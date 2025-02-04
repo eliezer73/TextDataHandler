@@ -139,9 +139,8 @@ csharp_space_between_method_declaration_name_and_open_parenthesis = false
 
 # SPDX-License-Identifier: EUPL-1.2+
 #
-# Copyleft © 2024 Eliezer - mailto:eliezer@programmer.net?subject=PostalCodes_FI
-# https://github.com/eliezer73/PostalCodes_FI
-# Licensed under the EUPL: https://joinup.ec.europa.eu/licence/european-union-public-licence-version-12-or-later-eupl
+# Copyleft © 2024‒ Eliezer - https://github.com/eliezer73/PostalCodes_FI
+# Licensed under the EUPL: https://eur-lex.europa.eu/eli/dec_impl/2017/863#d1e32-60-1
 
 # IDE0055: Fix formatting
 dotnet_diagnostic.IDE0055.severity = error

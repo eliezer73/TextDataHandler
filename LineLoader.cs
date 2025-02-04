@@ -1,8 +1,7 @@
 ﻿// SPDX-License-Identifier: EUPL-1.2+
 //
-// Copyleft © 2024 Eliezer - mailto:eliezer@programmer.net?subject=TextDataHandler
-// https://github.com/eliezer73/TextDataHandler
-// Licensed under the EUPL: https://joinup.ec.europa.eu/licence/european-union-public-licence-version-12-or-later-eupl
+// Copyleft © 2024‒ Eliezer - https://github.com/eliezer73/TextDataHandler
+// Licensed under the EUPL: https://eur-lex.europa.eu/eli/dec_impl/2017/863#d1e32-60-1
 
 using System;
 using System.Collections.Generic;
@@ -125,7 +124,7 @@ public class LineLoader
 		{
 			this.GetFileBytes();
 		}
-		byte[] sourceBytes = (byte[]) (this._bytes ?? []);
+		byte[] sourceBytes = [.. this._bytes ?? []];
 		Encoding? defaultEncoding = encoding != null ? Encoding.GetEncoding(encoding.CodePage) : null;
 		List<int> codePagesToCheck = [defaultEncoding?.CodePage ?? 0];
 		Dictionary<int, Dictionary<int, int>> codePagesChecked = [];
@@ -138,14 +137,14 @@ public class LineLoader
 			if (defaultEncoding == null && sourceBytes.Length > 10)
 			{
 				// Test encoding by possible byte order mark
-				using MemoryStream testStream = new(sourceBytes[..10]);
+				using MemoryStream testStream = new([.. sourceBytes[..10]]);
 				using StreamReader testReader = new(testStream, true);
 				defaultEncoding = testReader.CurrentEncoding;
 			}
 			int lineIndex = 0;
 			Dictionary<int, int> numberOfEncodedLinesByCodePage = [];
 			List<string> lines = [];
-			foreach (byte[] lineBytes in byteLines.Select(l => (byte[]) l))
+			foreach (byte[] lineBytes in byteLines.Select(l => l.ToArray()))
 			{
 				Encoding currentEncoding;
 				if (defaultEncoding != null)

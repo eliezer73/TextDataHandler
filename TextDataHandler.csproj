@@ -1,9 +1,8 @@
 ﻿<!--
   SPDX-License-Identifier: EUPL-1.2+
 
-  Copyleft © 2024 Eliezer - mailto:eliezer@programmer.net?subject=TextDataHandler
-  https://github.com/eliezer73/TextDataHandler
-  Licensed under the EUPL: https://joinup.ec.europa.eu/licence/european-union-public-licence-version-12-or-later-eupl
+  Copyleft © 2024‒ Eliezer - https://github.com/eliezer73/TextDataHandler
+  Licensed under the EUPL: https://eur-lex.europa.eu/eli/dec_impl/2017/863#d1e32-60-1
 -->
 <Project Sdk="Microsoft.NET.Sdk">
 
@@ -17,7 +16,7 @@
     <Title>Text Data Handler</Title>
     <Authors>Eliezer73</Authors>
     <Description>TextDataHandler reads in text data organized in one-line records and deals with the character encoding(s) needed.</Description>
-    <Copyright>Copyleft © 2024 &lt;a href="mailto:eliezer@programmer.net?subject=TextDataHandler" target="_mail"&gt;Eliezer&lt;/a&gt; - Licensed under the &lt;a href="https://joinup.ec.europa.eu/licence/european-union-public-licence-version-12-or-later-eupl" target="_joinup"&gt;EUPL&lt;/a&gt;</Copyright>
+    <Copyright>Copyleft © 2024 &lt;a href="https://github.com/eliezer73" &gt;Eliezer&lt;/a&gt; - Licensed under the &lt;a href="https://joinup.ec.europa.eu/licence/european-union-public-licence-version-12-or-later-eupl" target="_joinup"&gt;EUPL&lt;/a&gt;</Copyright>
     <PackageProjectUrl>https://github.com/eliezer73/TextDataHandler</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/eliezer73/TextDataHandler.git</RepositoryUrl>
