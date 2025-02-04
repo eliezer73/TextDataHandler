@@ -1,20 +1,53 @@
 ﻿<!--
   SPDX-License-Identifier: EUPL-1.2+
 
-  Copyleft © 2024 Eliezer - mailto:eliezer@programmer.net?subject=TextDataHandler
-  https://github.com/eliezer73/TextDataHandler
-  Licensed under the EUPL: https://joinup.ec.europa.eu/licence/european-union-public-licence-version-12-or-later-eupl
+  Copyleft © 2024‒ Eliezer - https://github.com/eliezer73/TextDataHandler
+  Licensed under the EUPL: https://eur-lex.europa.eu/eli/dec_impl/2017/863#d1e32-60-1
 -->
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <SignAssembly>False</SignAssembly>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <PackageId>Eliezer73.$(AssemblyName)</PackageId>
+    <Title>Text Data Handler</Title>
+    <Authors>Eliezer73</Authors>
+    <Description>TextDataHandler reads in text data organized in one-line records and deals with the character encoding(s) needed.</Description>
+    <Copyright>Copyleft © 2024 &lt;a href="https://github.com/eliezer73" &gt;Eliezer&lt;/a&gt; - Licensed under the &lt;a href="https://joinup.ec.europa.eu/licence/european-union-public-licence-version-12-or-later-eupl" target="_joinup"&gt;EUPL&lt;/a&gt;</Copyright>
+    <PackageProjectUrl>https://github.com/eliezer73/TextDataHandler</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/eliezer73/TextDataHandler.git</RepositoryUrl>
+    <PackageLicenseExpression>EUPL-1.2+</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest-all</AnalysisLevel>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <PackageIcon>TextDataHandler.png</PackageIcon>
+    <RepositoryType>git</RepositoryType>
+    <NeutralLanguage>en-150</NeutralLanguage>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <WarningLevel>9999</WarningLevel>
+    <NoWarn></NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <WarningLevel>9999</WarningLevel>
+    <NoWarn></NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
 
 </Project>
