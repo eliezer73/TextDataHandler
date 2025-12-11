@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+#
+# SPDX-License-Identifier: EUPL-1.2+
+#
+# Copyleft © 2024 Eliezer - mailto:eliezer@programmer.net?subject=TextDataHandler
+# https://github.com/eliezer73/TextDataHandler
+# Licensed under the EUPL: https://joinup.ec.europa.eu/licence/european-union-public-licence-version-12-or-later-eupl
+#
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34616.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextDataHandler", "TextDataHandler.csproj", "{9413A576-3A4E-470E-82B3-F026B9A4CECB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9413A576-3A4E-470E-82B3-F026B9A4CECB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9413A576-3A4E-470E-82B3-F026B9A4CECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9413A576-3A4E-470E-82B3-F026B9A4CECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9413A576-3A4E-470E-82B3-F026B9A4CECB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D32F27C2-B9F7-4DF3-9C50-D66B3EB0CD0A}
+	EndGlobalSection
+EndGlobal
